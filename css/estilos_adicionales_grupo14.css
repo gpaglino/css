@@ -1,0 +1,552 @@
+/***********************************************
+
+ Autores: PAGLINO GUILLERMO - QUIPILDOR LORENA
+
+***********************************************/
+
+/* ORGANIZAR LAS DECLARACIONES EN BLOQUES*/
+
+/* ESTILOS GENERALES*/
+:root {
+  --colorHeaderNav: #ff6000;
+  --color-body: #ffE6C7;
+  --color-resaltado: #FB2E02;
+  --color-texto-header: white;
+  --color-section: #ffc480;
+  --color-cards: #04437c;
+
+  --ancho-pantalla: 1000px;
+  --ancho-nav: 220px;
+}
+
+/* ESTILOS DE CABECERA PRINCIPAL*/
+
+.main-header {
+  width: var(--ancho-pantalla);
+  display: flex;
+  position: relative;
+  background-color: var(--colorHeaderNav);
+  border: 1px solid var(--color-body);
+  z-index: 10;
+}
+
+.main-header>h1 {
+  position: absolute;
+  margin-left: 40%;
+  color: var(--color-texto-header);
+  align-self: center;
+  order: 2;
+}
+
+.main-header img {
+  position: relative;
+  margin-left: 5%;
+  height: 100%;
+  order: 1;
+  filter: saturate(200%);
+}
+
+.notifications {
+  position: absolute;
+  top: 40%;
+  padding: 11px;
+  right: 1px;
+  justify-content: center;
+  color: var(--color-texto-header);
+  order: 3;
+}
+
+/* ANIMACION ICONO CAMPANA */
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    transform: translateX(-5px);
+  }
+
+  20%,
+  40%,
+  60%,
+  80% {
+    transform: translateX(5px);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.notification-icon:hover {
+  animation: shake 0.5s ease-in-out;
+}
+
+
+/* MENU PRINCIPAL */
+
+body {
+  background-color: var(--color-body);
+  width: var(--ancho-pantalla);
+}
+
+.menu-group {
+  margin-bottom: 20px;
+}
+
+.menu-group>h2 {
+  padding-top: 8px;
+  padding-left: 25px;
+  font-size: 25px;
+  color: var(--color-body);
+}
+
+.menu-group a {
+  display: block;
+  margin-left: 20px;
+  color: var(--color-body);
+}
+
+.menu-group a .material-icons {
+  margin-right: 5px;
+}
+
+/* ESTILOS DE BARRA DE NAVEGACIÓN */
+.main-menu {
+  float: left;
+  width: var(--ancho-nav);
+  padding: 0px 10px;
+  position: relative;
+  top: 10;
+  left: 0;
+  background-color: var(--colorHeaderNav);
+  overflow-y: visible
+}
+
+main section {
+  padding: 3px;
+  background-color: var(--color-section);
+}
+
+main {
+  width: calc(var(--ancho-pantalla) - var(--ancho-nav));
+  background-color: var(--color-texto-header);
+  justify-content: flex-end;
+}
+
+a {
+  padding: 4px 0;
+  display: flex;
+  color: var(--color-texto-header);
+  text-decoration: none;
+}
+
+.material-icons {
+  margin-right: 3px;
+}
+
+a>.menu-text {
+  color: var(--color-texto-header);
+  font-size: 16px;
+
+}
+
+a:hover {
+  background-color: var(--color-resaltado);
+}
+
+a:hover .material-icons {
+  color: var(--color-texto-header);
+}
+
+a:hover .menu-text {
+  color: var(--color-texto-header);
+}
+
+
+
+
+
+/* CAJAS Y OFERTS EXCLUSIVAS*/
+.exclusive-offers {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  height: 450px;
+  width: calc(var(--ancho-pantalla) - var(--ancho-nav));
+  text-align: center;
+  border: 1px solid var(--color-body);
+
+}
+
+.exclusive-offers h2 {
+  width: 350px;
+  left: 430px;
+  position: absolute;
+  text-align: center;
+  color: var(--color-texto-header);
+  background-color: var(--color-resaltado);
+  font-size: 1.8rem;
+  border-bottom: none;
+  animation: titulo 10s infinite;
+  text-transform: uppercase;
+}
+
+/*  TITULO EN MOVIMIENTO */
+@keyframes titulo {
+  0% {
+    left: 320px;
+  }
+
+  50% {
+    left: 550px;
+  }
+
+  100% {
+    left: 320px;
+  }
+}
+
+/*TAMAÑO DE IMAGENES DE CAJAS  */
+
+
+
+.art-offer header {
+  margin-bottom: 15px;
+}
+
+.art-offer {
+  margin-top: 30px;
+  background-color: var(--color-body);
+  border: solid 3px var(--color-section);
+
+}
+
+.art-offer>img {
+  width: 120px;
+  height: 120px;
+}
+
+.art-offer h3 {
+  margin: 10px;
+  font-size: 19px;
+  text-align: center;
+  height: 55px;
+  font-weight: bold;
+}
+
+.art-offer>header>p::before {
+  content: attr(data-art-old-price);
+  margin: 5px;
+  font-size: 20px;
+  text-decoration: line-through;
+  color: var(--color-resaltado);
+}
+
+.art-offer>header>p {
+  margin: 5px;
+  font-size: 30px;
+  font-weight: bold;
+  color: #333;
+}
+
+.art-offer>img {
+  width: 130px;
+  height: 120px;
+}
+
+.art-details{
+  height: 70px;  
+  background-color: var(--color-body);
+}
+
+.art-details>h4 {
+  font-size: x-small;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.art-details>p {
+  margin-top: 15px;
+  font-size: xx-small;
+  font-style: italic;
+}
+
+.art-offer>footer>p {
+  margin-top: 10px;
+}
+
+.art-offer button {
+  margin-top: 15px;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.art-offer button:hover {
+  background-color: #bcb8b8;
+}
+
+/*ACTIVIDAD RECIENTE*/
+.activity {
+  background-color: var(--color-section);
+  width: 398px;
+  height: 220px;
+  border: 3px solid var(--color-body);
+}
+
+table {
+  background-color: var(--color-body);
+  color: black;
+  width: 90%;
+  text-align: center;
+  border-collapse: collapse;
+  margin-left: 5px;
+}
+
+.activity h2 {
+  text-align: center;
+  color: black;
+  margin-bottom: 10px;
+  font-weight: bold;
+  font-size: 1.8rem;
+}
+
+
+.activity thead th {
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+.activity tbody tr:hover {
+  background: linear-gradient(90deg, var(--color-body)), var(--color-section);
+  color: var(--color-resaltado);
+  cursor: pointer;
+}
+
+.activity td {
+  border-top: var(--color-section) solid 1px;
+  font-weight: bold
+}
+
+
+/*TARJETAS*/
+
+.cards {
+  display: flex;
+  width: 382px;
+  height: 220px;
+  border: 3px solid var(--color-body);
+}
+
+.cards>h2 {
+  text-align: center;
+  margin-bottom: 10px;
+  font-weight: bold;
+  font-size: 1.8rem;
+}
+
+.card {
+  margin-left: 60px;
+  background-color: var(--color-cards);
+  color: var(--color-texto-header);
+  transition: transform .5s;
+  filter: drop-shadow(-3px -3px 3px var(--colorHeaderNav));
+}
+
+.card>h3,
+p {
+  margin-top: 5px;
+  margin-left: 10px;
+}
+
+.card>img {
+  left: 130px;
+  bottom: 3px;
+}
+
+.card:hover {
+  transform: scale(1.2);
+  z-index: 3;
+}
+
+/* CONTROL DE STOCK */
+
+.stock-control {
+  width: 398px;
+  height: 265px;
+  padding: 5px;
+  background-color: var(--color-body);
+  border: 3px solid var(--color-section);
+  position: relative;
+
+}
+
+.stock-control>h2 {
+  font-size: 1.6rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: var(--colorHeaderNav);
+  margin-bottom: 35px;
+}
+
+.stock-control h3 {
+  font-weight: bold;
+  padding-bottom: 15px;
+}
+
+.stock-alert[data-alert-level="high"]::before {
+  margin-top: 10px;
+  width: 30%;
+  height: 30px;
+  content: attr(data-stock) " unidades";
+  display: block;
+  background-color: var(--color-resaltado);
+  border: 1px solid black;
+  text-align: end;
+}
+
+.stock-alert[data-alert-level="medium"]::before {
+  width: 60%;
+  height: 30px;
+  content: attr(data-stock) " unidades";
+  display: block;
+  background-color: var(--colorHeaderNav);
+  border: 1px solid black;
+  text-align: end;
+}
+
+.stock-alert[data-alert-level="low"]::before {
+  width: 90%;
+  height: 30px;
+  content: attr(data-stock) " unidades";
+  display: block;
+  background-color: var(--color-cards);
+  border: 1px solid black;
+  text-align: end;
+}
+
+
+/* COTIZACION DOLAR */
+.currency {
+  width: 380px;
+  height: 265px;
+  font-size: 1.2rem;
+  color: var(--colorHeaderNav);
+  text-align: center;
+  margin-left: 2px;
+  background-color: var(--color-body);
+  border: 3px solid var(--color-section);
+
+}
+
+/* BARRAS SIMULANDO FLUJO VALOR */
+.loading {
+  width: 200px;
+  height: 100px;
+  justify-content: space-around;
+  align-items: flex-end;
+  margin-left: 80px;
+}
+
+.loading-item {
+  width: 35px;
+  height: 35px;
+  margin-right: 0;
+  background-color: lightblue;
+  animation: dolar 1s linear infinite;
+  border-radius: 0;
+}
+
+.currency>p {
+  display: none;
+}
+
+.currency>h2 {
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 65px;
+}
+
+.currency>p {
+  display: block;
+  top: 20px;
+  margin-top: 10px;
+  color: black;
+  font-size: 15px;
+  font-weight: bold;
+
+
+}
+
+/* PODRIA USARSE, SI ESTUVIERAN LOS DEMAS VALORES, EN REPRESENTACION A LOS DISTINTOS VALORES DE DOLAR QUE SE ENCUENTRAN CIRCULANDO, POR EJEMPLO VERDE VALOR DOLAR OFICIAL, 
+AZUL VALOR DOLAR BLUE, Y NEGRO VALOR DOLAR SOJA*/
+
+.loading-item:nth-child(1) {
+  background-color: green;
+  animation-delay: 0.1s;
+}
+
+.loading-item:nth-child(2) {
+  animation-delay: 0.3s;
+  background-color: blue;
+}
+
+.loading-item:nth-child(3) {
+  animation-delay: 0.5s;
+  background-color: black;
+}
+
+
+
+@keyframes dolar {
+  0% {
+    height: 30px;
+  }
+
+  50% {
+    height: 100px;
+  }
+
+  100% {
+    height: 30px;
+  }
+}
+
+
+/*AYUDA EN LINEA*/
+
+/*SECCION CONTACT SUPPORT*/
+.contact-support {
+  z-index: 1000;
+  background-color: var(--color-texto-header);
+  position: fixed;
+  bottom: 5px;
+  margin: 5px;
+  padding: 10px;
+  border-color: black;
+  border-radius: 25px;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
+}
+
+.contact-support:hover {
+  color: var(--color-texto-header);
+  background-color: var(--color-cards);
+}
+
+
+
+/* FOOTER */
+.main-footer {
+  width: var(--ancho-pantalla);
+  background-color: var(--color-section);
+  height: 65px;
+  padding: 20px;
+  text-align: center;
+  bottom: 0px;
+  border-top: 3px solid var(--color-body);
+
+}
